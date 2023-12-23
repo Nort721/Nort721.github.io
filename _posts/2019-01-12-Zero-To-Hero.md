@@ -1,11 +1,11 @@
 ---
-title:  "Unpacking GodsEye AntiCheat"
-date:   2019-01-12
+title:  "The solution for preventing closet cheating in tournaments"
+date:   2023-01-12
 tags: [posts]
-excerpt: "How I went from a naive college kid, who did not know there was more than one distribution of Linux, to an OSCP in less than a year - and debunking the stigma of OSCP."
+excerpt: "How I developed the solution for closed cheating in tournaments of competitive Minecraft servers."
 ---
 Introduction
 ---
-This is an introduction.
+This is a sample blog post. Lorem ipsum I can't remember the rest of lorem ipsum and don't have an internet connection right now. Testing testing testing this blog post. Blog posts are cool.
 ---
  
