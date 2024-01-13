@@ -1,5 +1,5 @@
 ---
-title:  "Monitoring driver loading to prevent loading of vulnerable and malicious drivers"
+title:  "Monitoring driver loading to prevent vulnerable and malicious drivers"
 date:   2024-01-13
 tags: [posts]
 excerpt: "This project helps harden Windows kernel driver loading by comparing driver hashes to a custom db"
