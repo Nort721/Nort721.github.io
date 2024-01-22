@@ -1,8 +1,8 @@
 ---
-title:  "Monitoring driver loading to block vulnerable and malicious drivers"
+title:  "Hardening the Windows kernel by monitoring driver loading"
 date:   2024-01-13
 tags: [posts]
-excerpt: "This project hardens Windows kernel driver loading by listening to driver load attempts and comparing the driver hash to a db of vulnerable drivers"
+excerpt: "This project hardens Windows kernel by blocking drivers that appear in vulnerable and malicious driver databases"
 ---
 Introduction
 ---
