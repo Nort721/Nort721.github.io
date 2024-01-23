@@ -86,9 +86,11 @@ This is the function definition of NtLoadDrvier together with definitions of NTS
 
 ![definitions](https://github.com/Nort721/Nort721.github.io/assets/24839815/dd4e0fb3-7722-4bfa-a4f7-4674afef16ff)
 
+
 Next, we declare the following two fields to store the original first 5 bytes of the function which we are going to replace with the trampoline bytes and declare the address of NtLoadLibrary.
 
 ![declarations](https://github.com/Nort721/Nort721.github.io/assets/24839815/e19a6a0a-cf24-453b-a4b0-5f8a19de211c)
+
 
 The hook is going to be inside a DLL that will be loaded to every process we want to monitor which in our case its all processes, the hook will be first installed when the DLL is attached to
 a process.
@@ -115,11 +117,22 @@ As you can see, we are writing from the address of the function forward at the s
 ![ScChangeMemPermFunc](https://github.com/Nort721/Nort721.github.io/assets/24839815/45a88b3d-3057-40a0-96a8-8ab0e32db7aa)
 
 
-SaveBytes saves the bytes that are going to be overwritten by the bytes of the hook
+SaveBytes saves the bytes that are going to be overwritten by the bytes of the hook.
 
 ![ScSaveBytesFunc](https://github.com/Nort721/Nort721.github.io/assets/24839815/a3a00140-8b34-49f7-bff2-67e7db7c0f1d)
 
 
-CreateInlineHookBytes creates an array containing the stub and copies the actual address to replace it with the placeholder 0xCC
+CreateInlineHookBytes creates an array containing the stub and copies the actual address to replace it with the placeholder 0xCC.
 
 ![ScCreateInlineHookBytesFunc](https://github.com/Nort721/Nort721.github.io/assets/24839815/dda769cc-4268-4594-93fb-86ff90588493)
+
+
+HookNtLoadDriver is the function that we are jumping to every time NtLoadDriver is called, the parameter passed to NtLoadDriver is a pointer to a unicode string that contains
+the registry pathname of the service of the driver, our hooked function operates in a few stages, first get the file system path for the binary of the driver, use the file to verify that the driver
+is safe, if it is, remove the trampoline bytes so we can call NtLoadDriver and then write the trampoline bytes back so we don't miss future calls. 
+if the driver is found to be not safe we simply return NTSTATUS - STATUS_ACCESS_DENIED.
+
+![ScHookNtLoadDriverFunc](https://github.com/Nort721/Nort721.github.io/assets/24839815/eed140a3-7941-438b-afcd-050f25f74bed)
+
+
+todo - explain VerifyDriverBinary . . .
