@@ -20,7 +20,7 @@ This for example allows monitoring of every process and thread creation, file re
 of processes handles and modify them which is often done to protect usermode processes from termination
 or dumping. These are just some examples but the possibilities are near limitless.
 
-Kernel defensive mechanisms - DSE
+Kernel defensive mechanism - DSE
 ---
 Running code inside the Windows kernel is no doubt a powerful capability, which is why when Microsoft
 first released Windows Vista it also introduced DSE.
@@ -59,9 +59,9 @@ Our hardening strategy with DLM
 While Microsoft is working on mechanisms better than DSE to try and prevent malicious code execution and exploitation in kernel-space
 these solutions are still early and can come with the cost of a lot of performance or create issues using other incompatible software.
 
-In either case we would like to make it harder for malware to perform kernel code execution, and we can do that by running code every time
+In either case, we would like to make it harder for malware to perform kernel code execution, and we can do that by running code every time
 software attempts to load a driver that checks if that driver is inside an external database of vulnerable or malicious drivers or even inside
-our own database that could contain drivers that are just easy to find online or that have been recently shared on hacking forums.
+our database that could contain drivers that are just easy to find online or that have been recently shared on hacking forums.
 
 This gives us that much more control over which drivers are being loaded and in theory it can allow us to block drivers by all sorts
 of parameters. Not only for appearing in a DB but based on certain methods appearing in its import table or certain byte patterns being
@@ -70,6 +70,12 @@ found in the binary, the possibilities are endless.
 When inspecting driver loaders in most cases we find that they call NtLoadDriver from ntdll.dll, meaning if we hook
 that function we will be able to execute our code and also decide whether we want to forward the call to the actual NtLoadDriver function.
 
-Placing an inline hook on NtLoadDriver
+Selecting the hooking strategy
 ---
-I've decided to go with an inline hook because . . .
+I've decided to use an inline hook over an IAT hook because unlike IAT hooking where we just modify a data structure, inline hooking
+involves modifying the code at the instruction level rather than altering data structures like the IAT. This can make it more challenging for anti-hooking techniques to identify and remove the hook.
+
+Also, inline hooking provides better stability and compatibility since in some cases optimized or obfuscated code may not work well with IAT hooks due to the reliance on fixed addresses in the import table. Inline hooking, being more flexible and operating directly at the instruction level, can be more compatible with such scenarios.
+
+Hooking NtLoadDriver
+---
