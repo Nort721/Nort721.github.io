@@ -79,3 +79,13 @@ Also, inline hooking provides better stability and compatibility since in some c
 
 Hooking NtLoadDriver
 ---
+NtLoadDriver like most native API functions is undocumented but there is plenty of information about it online in lots of unofficial documentation websites and forums like undocumented.ntinternals.net, geoffchappell.com, and unknowncheats.me
+just to name a few.
+
+This is the function definition together with definitions of NTSTATUS STATUS_ACCESS_DENIED which we will return when the driver is found to be vulnerable or malicious and a max path size value which we will use later on.
+
+![definitions](https://github.com/Nort721/Nort721.github.io/assets/24839815/dd4e0fb3-7722-4bfa-a4f7-4674afef16ff)
+
+Next, declare the following two fields to store the original first 5 bytes of the function which we are going to replace with the trampoline and the address of NtLoadLibrary.
+
+![declarations](https://github.com/Nort721/Nort721.github.io/assets/24839815/e19a6a0a-cf24-453b-a4b0-5f8a19de211c)
