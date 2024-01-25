@@ -144,7 +144,7 @@ ways that create write vulnerabilities, the possibilities are endless and are al
 
 The CalcMemHash function is used to calculate the djb2 hash of the memory buffer that the driver has been read to by the ReadBinary function.
 
-![ScChangeMemPermFunc](https://github.com/Nort721/Nort721.github.io/assets/24839815/29b3255f-bfeb-4ddb-9fbb-269646bf9372)
+![ScCalcMemHashFunc](https://github.com/Nort721/Nort721.github.io/assets/24839815/65406273-1dc8-4f9b-a93b-b4d2c78c8ecb)
 
 
 Making the server
