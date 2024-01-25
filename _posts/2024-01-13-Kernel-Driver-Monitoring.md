@@ -194,7 +194,7 @@ And as we can see our hook intercepted the call and prevented the loading of the
 
 ![ScMonitoredTest](https://github.com/Nort721/unpublished_blogs/assets/24839815/98a36198-b41b-4883-bb1c-25025f06b977)
 
-And testing with DLM uninstalled, the vulnerable driver is loaded with no issue.
+And testing with DLM uninstalled, the vulnerable driver is loaded and is used to load the unsigned driver with no issue.
 
 ![ScNotMonitoredTest](https://github.com/Nort721/unpublished_blogs/assets/24839815/2ef5effc-a601-4883-8875-569656d0e681)
 
