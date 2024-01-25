@@ -140,11 +140,11 @@ As I lightly touched on earlier this is where we can get creative and optionally
 with more existing databases, using more advanced signatures, you could decide to ban the usage of certain functions that are known to be vulnerable (a usermode example for usage of unsafe functions is strcpy) or that are very commonly misused in
 ways that create write vulnerabilities, the possibilities are endless and are all enabled by this monitoring mechanism.
 
-![ScVerifyDriverBinaryFunc](https://github.com/Nort721/unpublished_blogs/assets/24839815/1b3bc8c6-65de-4355-8767-f7bbcdaaaf80)
+![ScVerifyDriverBinaryFunc](https://github.com/Nort721/Nort721.github.io/assets/24839815/1b3bc8c6-65de-4355-8767-f7bbcdaaaf80)
 
 The CalcMemHash function is used to calculate the djb2 hash of the memory buffer that the driver has been read to by the ReadBinary function.
 
-![ScCalcMemHashFunc](https://github.com/Nort721/unpublished_blogs/assets/24839815/2b84a91b-e902-41b6-b7fe-d96be74baf17)
+![ScCalcMemHashFunc](https://github.com/Nort721/Nort721.github.io/assets/24839815/2b84a91b-e902-41b6-b7fe-d96be74baf17)
 
 
 Making the server
@@ -156,7 +156,7 @@ I decided to use Go to write the server for its relatively high runtime performa
 The server code is pretty short and simple, listening to incoming sockets and handling each connection in a separate goroutine concurrently. The list of vulnerable driver hashes is kept in a text file that represents the database,
 this would of course be replaced with a proper database if used in a production environment, but for now, this is not necessary for the POC.
 
-![ScServer](https://github.com/Nort721/unpublished_blogs/assets/24839815/77b0cf33-c6ba-49e1-8da4-13215bd9c99a)
+![ScServer](https://github.com/Nort721/Nort721.github.io/assets/24839815/77b0cf33-c6ba-49e1-8da4-13215bd9c99a)
 
 
 Hooking all processes in Windows (improve this section)
@@ -173,18 +173,18 @@ Making the installer
 ---
 I made a .net installer application with a GUI to automate the process of setting up the system and make it easier to use.
 
-![ScDLMInstaller](https://github.com/Nort721/unpublished_blogs/assets/24839815/8b91ec30-dd9e-4a5c-9f3a-a263797a8fe8)
+![ScDLMInstaller](https://github.com/Nort721/Nort721.github.io/assets/24839815/8b91ec30-dd9e-4a5c-9f3a-a263797a8fe8)
 
 When the installation button is pressed the following function executes.
 The function copies hook.dll to a new folder called DLM inside the AppData folder, then it adds the path of that copied DLL to AppInitDLLs.
 
-![ScInstallBtnFunc](https://github.com/Nort721/unpublished_blogs/assets/24839815/cc144136-092d-467c-aca4-ce4ddae37af0)
-![ScAddDllAppInitFunc](https://github.com/Nort721/unpublished_blogs/assets/24839815/5fbcc42e-99ae-4753-87e1-e1f226bb2391)
+![ScInstallBtnFunc](https://github.com/Nort721/Nort721.github.io/assets/24839815/cc144136-092d-467c-aca4-ce4ddae37af0)
+![ScAddDllAppInitFunc](https://github.com/Nort721/Nort721.github.io/assets/24839815/5fbcc42e-99ae-4753-87e1-e1f226bb2391)
 
 As explained earlier we also need to set the LoadAppInit_DLLs value to 1 to enable AppInitDLL's functionality and we need to allow unsigned DLLs to be used
 in AppInitDLLs by setting RequireSignedAppInit_DLLs to 0 since our DLL isn't signed.
 
-![ScOtherValuesFuncs](https://github.com/Nort721/unpublished_blogs/assets/24839815/a9f3d528-c4c5-4ab0-9f46-a3f844e39da2)
+![ScOtherValuesFuncs](https://github.com/Nort721/Nort721.github.io/assets/24839815/a9f3d528-c4c5-4ab0-9f46-a3f844e39da2)
 
 
 And finally.. Run it!
@@ -192,11 +192,11 @@ And finally.. Run it!
 First testing using an unsigned driver loader that utilizes a driver that has a write primitive vulnerability, this is a test with DLM installed.
 And as we can see our hook intercepted the call and prevented the loading of the vulnerable driver.
 
-![ScMonitoredTest](https://github.com/Nort721/unpublished_blogs/assets/24839815/98a36198-b41b-4883-bb1c-25025f06b977)
+![ScMonitoredTest](https://github.com/Nort721/Nort721.github.io/assets/24839815/98a36198-b41b-4883-bb1c-25025f06b977)
 
 And testing with DLM uninstalled, the vulnerable driver is loaded and is used to load the unsigned driver with no issue.
 
-![ScNotMonitoredTest](https://github.com/Nort721/unpublished_blogs/assets/24839815/2ef5effc-a601-4883-8875-569656d0e681)
+![ScNotMonitoredTest](https://github.com/Nort721/Nort721.github.io/assets/24839815/2ef5effc-a601-4883-8875-569656d0e681)
 
 
 Conclusion
