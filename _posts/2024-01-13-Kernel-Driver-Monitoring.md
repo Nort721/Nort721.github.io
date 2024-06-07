@@ -144,7 +144,7 @@ ways that create write vulnerabilities, the possibilities are endless and are al
 
 The CalcMemHash function is used to calculate the djb2 hash of the memory buffer that the driver has been read to by the ReadBinary function.
 
-![ScCalcMemHashFunc](https://github.com/Nort721/Nort721.github.io/assets/24839815/65406273-1dc8-4f9b-a93b-b4d2c78c8ecb)
+![ScCalcMemHashFunc](https://github.com/Nort721/Nort721.github.io/assets/24839815/1a2bd77a-6635-4e32-9b0f-e4fed275af9a)
 
 
 Making the server
@@ -171,7 +171,8 @@ This also requires enabling the LoadAppInit_DLLs value that's in the same path a
 
 Making the installer
 ---
-I made a .net installer application with a GUI to automate the process of setting up the system and make it easier to use.
+I made a .net installer application with a GUI to automate![ScCalcMemHashFunc](https://github.com/Nort721/Nort721.github.io/assets/24839815/56d3e9df-6f02-4238-9f17-d01cf0786e2f)
+ the process of setting up the system and make it easier to use.
 
 ![ScDLMInstaller](https://github.com/Nort721/Nort721.github.io/assets/24839815/9b93f7f2-11ac-49cb-a460-6c5a154d18a6)
 
