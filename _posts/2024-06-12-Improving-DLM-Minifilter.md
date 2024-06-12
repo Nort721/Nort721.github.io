@@ -1,8 +1,8 @@
 ---
-title:  "[POC] Improving our driver load monitoring using a minifilter driver"
+title:  "Improving our driver load monitoring using a minifilter driver"
 date:   2024-06-12
 tags: [posts]
-excerpt: "Improving my vulnerable driver blocker by monitoring driver loading using a minifilter driver and better scanning using YARA signatures"
+excerpt: "Improving the driver load monitoring using a minifilter driver and better scanning using YARA signatures"
 ---
 Introduction
 ---
