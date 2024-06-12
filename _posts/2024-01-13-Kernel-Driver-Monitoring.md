@@ -1,5 +1,5 @@
 ---
-title:  "[POC] Hardening the Windows kernel by monitoring driver loading"
+title:  "Hardening the Windows kernel by monitoring driver loading"
 date:   2024-01-13
 tags: [posts]
 excerpt: "A POC project that hardens the Windows kernel by blocking drivers that appear in vulnerable or malicious driver databases"
