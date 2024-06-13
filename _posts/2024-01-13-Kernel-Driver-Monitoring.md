@@ -171,8 +171,8 @@ This also requires enabling the LoadAppInit_DLLs value that's in the same path a
 
 Making the installer
 ---
-I made a .net installer application with a GUI to automate![ScCalcMemHashFunc](https://github.com/Nort721/Nort721.github.io/assets/24839815/56d3e9df-6f02-4238-9f17-d01cf0786e2f)
- the process of setting up the system and make it easier to use.
+I made a .net installer application with a GUI to automate
+the process of setting up the system and make it easier to use.
 
 ![ScDLMInstaller](https://github.com/Nort721/Nort721.github.io/assets/24839815/9b93f7f2-11ac-49cb-a460-6c5a154d18a6)
 
