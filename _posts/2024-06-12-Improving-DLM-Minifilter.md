@@ -6,8 +6,6 @@ excerpt: "Improving the driver load monitoring using a minifilter driver and bet
 ---
 Introduction
 ---
-This is a sample blog post. Lorem ipsum I can't remember the rest of lorem ipsum and don't have an internet connection right now. Testing testing testing this blog post. Blog posts are cool.
-This is a sample blog post. Lorem ipsum I can't remember the rest of lorem ipsum and don't have an internet connection right now. Testing testing testing this blog post. Blog posts are cool.
-This is a sample blog post. Lorem ipsum I can't remember the rest of lorem ipsum and don't have an internet connection right now. Testing testing testing this blog post. Blog posts are cool.
+This post is still being written internally. check out the currently still-in-development source code at https://github.com/Nort721/DLM/tree/main/driver_based
 
  
